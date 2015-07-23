@@ -2,7 +2,10 @@ require 'rest-client'
 require 'json'
 require 'mapbox/api_operations'
 require 'mapbox/authentication_error'
+
+# services
 require 'mapbox/geocoder'
+require 'mapbox/directions'
 
 module Mapbox
   @api_base = 'https://api.mapbox.com'
