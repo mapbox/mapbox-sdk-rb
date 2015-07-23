@@ -2,6 +2,12 @@
 
 The `mapbox-sdk` gem. A ruby interface to [Mapbox APIs](https://www.mapbox.com/developers/api/).
 
+## Installation
+
+```
+gem install mapbox-sdk
+```
+
 ## Services
 
 * [Geocoding](https://www.mapbox.com/developers/api/geocoding/)
