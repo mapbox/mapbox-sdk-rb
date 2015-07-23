@@ -1,6 +1,6 @@
 # mapbox-sdk-ruby
 
-The `mapbox` gem. A ruby interface to [Mapbox APIs](https://www.mapbox.com/developers/api/).
+The `mapbox-sdk` gem. A ruby interface to [Mapbox APIs](https://www.mapbox.com/developers/api/).
 
 ## Services
 
@@ -13,7 +13,7 @@ The `mapbox` gem. A ruby interface to [Mapbox APIs](https://www.mapbox.com/devel
 ## Example
 
 ```rb
-require "mapbox"
+require "mapbox-sdk"
 Mapbox.access_token = "YOUR_ACCESS_TOKEN"
 
 # Reverse geocoding
