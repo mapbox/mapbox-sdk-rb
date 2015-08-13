@@ -14,8 +14,8 @@ module Mapbox
   should "#geocode_reverse" do
       Mapbox.access_token = ENV["MapboxAccessToken"]
       result = Mapbox::Geocoder.geocode_reverse({
-        "latitude" => 38,
-        "longitude" => -100
+        :latitude => 38,
+        :longitude => -100
       })
       assert result
     end
