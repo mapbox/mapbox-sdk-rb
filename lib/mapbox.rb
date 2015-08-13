@@ -3,15 +3,15 @@ require 'json'
 require 'mapbox/api_operations'
 require 'mapbox/authentication_error'
 
-# services
-require 'mapbox/geocoder'
-require 'mapbox/directions'
-
 module Mapbox
   @api_base = 'https://api.mapbox.com'
 
+  LATITUDE_KEY = 'latitude'.freeze
+  LONGITUDE_KEY = 'longitude'.freeze
+
   class << self
     attr_accessor :access_token, :api_base
+
   end
 
   def self.request(method, url, api_key, params={}, headers={}, api_base_url=nil)
@@ -168,4 +168,15 @@ module Mapbox
 
     raise StandardError.new(message + "\n\n(Network error: #{e.message})")
   end
+
+  module HashUtils
+    def xy_from_hash h = {}
+      [ h.fetch(:longitude){ h[LONGITUDE_KEY] },
+        h.fetch(:latitude){ h[LATITUDE_KEY] } ]
+    end
+  end
 end
+
+# services
+require 'mapbox/geocoder'
+require 'mapbox/directions'

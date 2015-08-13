@@ -9,12 +9,12 @@ module Mapbox
       Mapbox.access_token = ENV["MapboxAccessToken"]
       result = Mapbox::Directions.directions([
         {
-          "longitude" => -100,
-          "latitude" => 38
+          :longitude => -100,
+          :latitude => 38
         },
         {
-          "longitude" => -90,
-          "latitude" => 38
+          :longitude => -90,
+          :latitude => 38
         }
       ])
       assert result
