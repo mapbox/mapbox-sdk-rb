@@ -9,14 +9,14 @@ module Mapbox
     def self.geocode_forward(query, proximity=nil, dataset='mapbox.places')
       return request(
         :get,
-        "/v4/geocode/#{dataset}/#{URI.escape(query)}.json",
+        "/geocoding/v5/#{dataset}/#{URI.escape(query)}.json",
         nil)
     end
 
     def self.geocode_reverse(location, dataset='mapbox.places')
       return request(
         :get,
-        "/v4/geocode/#{dataset}/#{xy_from_hash(location).join(',')}.json",
+        "/geocoding/v5/#{dataset}/#{xy_from_hash(location).join(',')}.json",
         nil)
     end
   end
