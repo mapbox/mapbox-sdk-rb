@@ -5,13 +5,13 @@ require 'mapbox/authentication_error'
 
 module Mapbox
   @api_base = 'https://api.mapbox.com'
+  @request_opts = {}
 
   LATITUDE_KEY = 'latitude'.freeze
   LONGITUDE_KEY = 'longitude'.freeze
 
   class << self
-    attr_accessor :access_token, :api_base
-
+    attr_accessor :access_token, :api_base, :request_opts
   end
 
   def self.request(method, url, api_key, params={}, headers={}, api_base_url=nil)
@@ -37,10 +37,10 @@ module Mapbox
       payload = nil
     end
 
-    request_opts = {:verify_ssl => OpenSSL::SSL::VERIFY_PEER,
+    @request_opts = {:verify_ssl => OpenSSL::SSL::VERIFY_PEER,
                       :ssl_ca_file => @ssl_bundle_path}
 
-    request_opts.update(
+    @request_opts.update(
       :method => method,
       :open_timeout => 30,
       :payload => payload,
@@ -48,7 +48,7 @@ module Mapbox
       :timeout => 80)
 
     begin
-      response = execute_request(request_opts)
+      response = execute_request(@request_opts)
     rescue SocketError => e
       handle_restclient_error(e, api_base_url)
     rescue NoMethodError => e
