@@ -7,22 +7,18 @@ module Mapbox
     extend Mapbox::HashUtils
 
     def self.geocode_forward(query, options={}, dataset='mapbox.places')
-      proximity = options[:proximity] || nil
-      bbox = options[:bbox] || nil
+      proximity = options[:proximity]
+      bbox = options[:bbox]
       params = ''
 
-      if proximity != nil then
+      if proximity then
         lon = proximity[:longitude].round(3)
         lat = proximity[:latitude].round(3)
         params += "#{params.length > 0 ? '&' : '?'}proximity=#{lon}%2C#{lat}"
       end
 
-      if bbox != nil then
-        minX = bbox[0]
-        minY = bbox[1]
-        maxX = bbox[2]
-        maxY = bbox[3]
-        params += "#{params.length > 0 ? '&' : '?'}bbox=#{minX}%2C#{minY}%2C#{maxX}%2C#{maxY}"
+      if bbox then
+        params += "#{params.length > 0 ? '&' : '?'}bbox=#{bbox.join('%2C')}"
       end
       return request(
         :get,

@@ -25,6 +25,13 @@ module Mapbox
       assert Mapbox.request_opts[:url].include? '?bbox=-78.3284%2C38.6039%2C-78.0428%2C38.7841';
     end
 
+    should "#geocode_forward (include extra param)" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      result = Mapbox::Geocoder.geocode_forward("Washington", {:bbox => [-78.3284,38.6039,-78.0428,38.7841], :foo_key => "foo_val", :bar_key => "bar_val"})
+      assert result
+      assert Mapbox.request_opts[:url].include? '?foo_key=foo_val&bar_key=bar_val';
+    end
+
     should "#geocode_reverse" do
       Mapbox.access_token = ENV["MapboxAccessToken"]
       result = Mapbox::Geocoder.geocode_reverse({
