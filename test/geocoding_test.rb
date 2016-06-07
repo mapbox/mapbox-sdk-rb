@@ -32,6 +32,13 @@ module Mapbox
       assert Mapbox.request_opts[:url].include? '?foo_key=foo_val&bar_key=bar_val';
     end
 
+    should "#geocode_forward (include country param)" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      result = Mapbox::Geocoder.geocode_forward("Washington", {:country => "ca"})
+      assert result
+      assert Mapbox.request_opts[:url].include? '?country=ca';
+    end
+
     should "#geocode_reverse" do
       Mapbox.access_token = ENV["MapboxAccessToken"]
       result = Mapbox::Geocoder.geocode_reverse({
