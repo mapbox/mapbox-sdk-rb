@@ -1,22 +1,33 @@
 require 'rest-client'
 require 'json'
+require 'uri'
 
 module Mapbox
   class Geocoder
     include Mapbox::APIOperations::Request
     extend Mapbox::HashUtils
 
-    def self.geocode_forward(query, proximity=nil, dataset='mapbox.places')
-      proximity_param = ''
-      if proximity != nil then
-        lon = proximity[:longitude].round(3)
-        lat = proximity[:latitude].round(3)
-        proximity_param = "?proximity=#{lon}%2C#{lat}"
+    def self.geocode_forward(query, options={}, dataset='mapbox.places')
+      proximity = options[:proximity]
+      bbox = options[:bbox]
+      params = ''
+      opts = options.select { |key, value| key != :proximity && key != :bbox}
+      if opts.length > 0
+        params += "#{params.length > 0 ? '&' : '?'}#{URI.encode_www_form(opts)}"
       end
 
+      if proximity then
+        lon = proximity[:longitude].round(3)
+        lat = proximity[:latitude].round(3)
+        params += "#{params.length > 0 ? '&' : '?'}proximity=#{lon}%2C#{lat}"
+      end
+
+      if bbox then
+        params += "#{params.length > 0 ? '&' : '?'}bbox=#{bbox.join('%2C')}"
+      end
       return request(
         :get,
-        "/geocoding/v5/#{dataset}/#{URI.escape(query)}.json#{proximity_param}",
+        "/geocoding/v5/#{dataset}/#{URI.escape(query)}.json#{params}",
         nil)
     end
 
