@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'json'
+require 'uri'
 
 module Mapbox
   class Geocoder
@@ -10,6 +11,10 @@ module Mapbox
       proximity = options[:proximity]
       bbox = options[:bbox]
       params = ''
+      opts = options.select { |key, value| key != :proximity && key != :bbox}
+      if opts.length > 0
+        params += "#{params.length > 0 ? '&' : '?'}#{URI.encode_www_form(opts)}"
+      end
 
       if proximity then
         lon = proximity[:longitude].round(3)
