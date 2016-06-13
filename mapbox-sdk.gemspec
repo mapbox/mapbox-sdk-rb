@@ -2,7 +2,7 @@ $:.unshift(File.join(File.dirname(__FILE__), 'lib'))
 
 spec = Gem::Specification.new do |s|
   s.name = 'mapbox-sdk'
-  s.version = '1.0.0'
+  s.version = '2.0.0'
   s.summary = 'Ruby bindings for the Mapbox API'
   s.description = ''
   s.authors = ['Tom MacWright']
