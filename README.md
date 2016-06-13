@@ -28,8 +28,8 @@ placenames = Mapbox::Geocoder.geocode_reverse({
   "longitude" => -100
 })
 
-# Forward geocoding
-places = Mapbox::Geocoder.geocode_forward("Chester, NJ")
+# Forward geocoding with optional proximity parameter
+places = Mapbox::Geocoder.geocode_forward("Chester, NJ", {:proximity => {:longitude => -74.6968, :latitude => 40.7843}})
 
 # Directions
 drivingDirections = Mapbox::Directions.directions([{
