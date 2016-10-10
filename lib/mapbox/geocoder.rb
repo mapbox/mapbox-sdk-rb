@@ -10,8 +10,9 @@ module Mapbox
     def self.geocode_forward(query, options={}, dataset='mapbox.places')
       proximity = options[:proximity]
       bbox = options[:bbox]
+      limit = options[:limit]
       params = ''
-      opts = options.select { |key, value| key != :proximity && key != :bbox}
+      opts = options.select { |key, value| key != :proximity && key != :bbox && key != :limit}
       if opts.length > 0
         params += "#{params.length > 0 ? '&' : '?'}#{URI.encode_www_form(opts)}"
       end
@@ -25,6 +26,10 @@ module Mapbox
       if bbox then
         params += "#{params.length > 0 ? '&' : '?'}bbox=#{bbox.join('%2C')}"
       end
+
+      if limit then
+        params += "#{params.length > 0 ? '&' : '?'}limit=#{limit}"
+
       return request(
         :get,
         "/geocoding/v5/#{dataset}/#{URI.escape(query)}.json#{params}",
