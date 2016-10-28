@@ -39,6 +39,13 @@ module Mapbox
       assert Mapbox.request_opts[:url].include? '?country=ca';
     end
 
+    should "#geocode_forward (include types param)" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      result = Mapbox::Geocoder.geocode_forward("Washington", {:types => ['poi.landmark', 'address'], :foo_key => "foo_val", :bar_key => "bar_val"})
+      assert result
+      assert Mapbox.request_opts[:url].include? '?foo_key=foo_val&bar_key=bar_val&types=poi.landmark%2Caddress';
+    end
+
     should "#geocode_reverse" do
       Mapbox.access_token = ENV["MapboxAccessToken"]
       result = Mapbox::Geocoder.geocode_reverse({
