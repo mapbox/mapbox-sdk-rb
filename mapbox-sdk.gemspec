@@ -10,7 +10,7 @@ spec = Gem::Specification.new do |s|
   s.homepage = 'https://mapbox.com/developers'
   s.license = 'MIT'
 
-  s.add_dependency('rest-client', '~> 1.4')
+  s.add_dependency('rest-client', '~> 2.0')
 
   s.add_development_dependency('mocha', '~> 0.13.2')
   s.add_development_dependency('shoulda', '~> 3.4.0')
