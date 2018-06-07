@@ -10,11 +10,12 @@ gem install mapbox-sdk
 
 ## Services
 
-* [Geocoding](https://www.mapbox.com/developers/api/geocoding/)
+* [Geocoding](https://www.mapbox.com/api-documentation/#geocoding)
   * Forward (place names ⇢  longitude, latitude)
   * Reverse (longitude, latitude ⇢ place names)
-* [Directions](https://www.mapbox.com/developers/api/directions/)
+* [Directions](https://www.mapbox.com/api-documentation/#directions)
   * Profiles for driving, walking, and cycling
+* [Tilequery](https://www.mapbox.com/api-documentation/#tilequery)
 
 ## Example
 
