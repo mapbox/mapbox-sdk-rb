@@ -40,6 +40,9 @@ drivingDirections = Mapbox::Directions.directions([{
   "longitude" => -90,
   "latitude" => 38
 }])
+
+# Tilequery
+tilequery = Mapbox::Tilequery.tilequery("mapbox.mapbox-streets-v7", {"longitude" => -100, "latitude" => 38})
 ```
 
 Heavily influenced by Stripe's Ruby client, and includes its MIT license.
