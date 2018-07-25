@@ -1,6 +1,3 @@
-require 'rest-client'
-require 'json'
-
 module Mapbox
   class Tilequery
     include Mapbox::APIOperations::Request
