@@ -31,14 +31,16 @@ placenames = Mapbox::Geocoder.geocode_reverse({
 # Forward geocoding with optional proximity parameter
 places = Mapbox::Geocoder.geocode_forward("Chester, NJ", {:proximity => {:longitude => -74.6968, :latitude => 40.7843}})
 
-# Directions
+# Driving directions with required profile parameter
 drivingDirections = Mapbox::Directions.directions([{
   "longitude" => -100,
   "latitude" => 38
 }, {
   "longitude" => -90,
   "latitude" => 38
-}])
+}], "driving")
+
+# In the above example, you can substitute `driving` for `driving-traffic`, `cycling` or `walking`. For more, [check out the documentation](https://www.mapbox.com/api-documentation/#directions).
 ```
 
 Heavily influenced by Stripe's Ruby client, and includes its MIT license.
