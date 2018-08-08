@@ -16,7 +16,7 @@ module Mapbox
           :longitude => -90,
           :latitude => 38
         }
-      ])
+      ], "cycling")
       assert result
     end
   end
