@@ -40,7 +40,6 @@ drivingDirections = Mapbox::Directions.directions([{
   "longitude" => -90,
   "latitude" => 38
   }], "driving")
-}])
   
 # In the above example, you can substitute `driving` for `driving-traffic`, `cycling` or `walking`. For more, [check out the documentation](https://www.mapbox.com/api-documentation/#directions).
 
