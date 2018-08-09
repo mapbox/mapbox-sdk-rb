@@ -8,7 +8,7 @@ module Mapbox
     should "#tilequery" do
       Mapbox.access_token = ENV["MapboxAccessToken"]
       result = Mapbox::Tilequery.tilequery(
-        "mapbox.mapbox-streets-v7", {"longitude" => -100, "latitude" => 38})
+        "mapbox.mapbox-streets-v7", {"longitude" => -122.42901, "latitude" => 37.80633}, 5, 10)
       assert result
     end
   end
