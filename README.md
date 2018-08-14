@@ -10,11 +10,12 @@ gem install mapbox-sdk
 
 ## Services
 
-* [Geocoding](https://www.mapbox.com/developers/api/geocoding/)
+* [Geocoding](https://www.mapbox.com/api-documentation/#geocoding)
   * Forward (place names ⇢  longitude, latitude)
   * Reverse (longitude, latitude ⇢ place names)
-* [Directions](https://www.mapbox.com/developers/api/directions/)
+* [Directions](https://www.mapbox.com/api-documentation/#directions)
   * Profiles for driving, walking, and cycling
+* [Tilequery](https://www.mapbox.com/api-documentation/#tilequery)
 
 ## Example
 
@@ -38,9 +39,16 @@ drivingDirections = Mapbox::Directions.directions([{
 }, {
   "longitude" => -90,
   "latitude" => 38
-}], "driving")
-
+  }], "driving")
+  
 # In the above example, you can substitute `driving` for `driving-traffic`, `cycling` or `walking`. For more, [check out the documentation](https://www.mapbox.com/api-documentation/#directions).
+
+# Tilequery
+tilequery = Mapbox::Tilequery.tilequery(mapid, {location}, radius, limit)
+
+Example: tilequery = Mapbox::Tilequery.tilequery("mapbox.mapbox-streets-v7", {"longitude" => -100, "latitude" => 38}, 0, 1)
+`Radius` refers to the approximate distance in meters to query for features. Defaults to  0 if left blank. Has no upper bound. Required for queries against point and line data. 
+`Limit` refers to the number of features between  1 - 50 to return. Defaults to  5 if left blank.
 ```
 
 Heavily influenced by Stripe's Ruby client, and includes its MIT license.

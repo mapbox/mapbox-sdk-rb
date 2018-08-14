@@ -180,3 +180,4 @@ end
 # services
 require 'mapbox/geocoder'
 require 'mapbox/directions'
+require 'mapbox/tilequery'
