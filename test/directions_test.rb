@@ -16,7 +16,9 @@ module Mapbox
           :longitude => -90,
           :latitude => 38
         }
-      ], "cycling")
+      ], "cycling", {
+        geometries: "geojson"
+      })
       assert result
     end
   end

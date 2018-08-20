@@ -32,14 +32,16 @@ placenames = Mapbox::Geocoder.geocode_reverse({
 # Forward geocoding with optional proximity parameter
 places = Mapbox::Geocoder.geocode_forward("Chester, NJ", {:proximity => {:longitude => -74.6968, :latitude => 40.7843}})
 
-# Driving directions with required profile parameter
+# Driving directions with required profile parameter. The third parameter is optional.
 drivingDirections = Mapbox::Directions.directions([{
   "longitude" => -100,
   "latitude" => 38
 }, {
   "longitude" => -90,
   "latitude" => 38
-  }], "driving")
+  }], "driving", {
+  "geometries": "geojson"
+})
   
 # In the above example, you can substitute `driving` for `driving-traffic`, `cycling` or `walking`. For more, [check out the documentation](https://www.mapbox.com/api-documentation/#directions).
 
