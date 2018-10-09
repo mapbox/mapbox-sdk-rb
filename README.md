@@ -25,8 +25,8 @@ Mapbox.access_token = "YOUR_ACCESS_TOKEN"
 
 # Reverse geocoding
 placenames = Mapbox::Geocoder.geocode_reverse({
-  "latitude" => 38,
-  "longitude" => -100
+  "latitude": 38,
+  "longitude": -100
 })
 
 # Forward geocoding with optional proximity parameter
