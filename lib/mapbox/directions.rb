@@ -49,8 +49,6 @@ module Mapbox
     def self.directions(waypoints, profile, options={})
       formatted_waypoints = waypoints.map {|p| xy_from_hash(p).join ','}.join ';'
       params = self.assemble_params(options)
-
-      puts "request will be /directions/v5/mapbox/#{profile}/#{formatted_waypoints}.json#{params}"
       
       return request(
           :get,
