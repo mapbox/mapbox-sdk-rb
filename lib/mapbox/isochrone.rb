@@ -1,7 +1,6 @@
 module Mapbox
   class Isochrone
     include Mapbox::APIOperations::Request
-    extend Mapbox::HashUtils
 
     def self.assemble_params(options={})
       contours_minutes = options[:contours_minutes]
