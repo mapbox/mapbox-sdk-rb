@@ -19,7 +19,7 @@ gem install mapbox-sdk
 * [Isochrone](https://www.mapbox.com/api-documentation/#isochrone)
   * Profiles for driving, walking, and cycling
 
-## Example
+## Examples
 
 ```rb
 require "mapbox-sdk"
