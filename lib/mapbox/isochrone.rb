@@ -5,9 +5,6 @@ module Mapbox
     def self.assemble_params(options={})
       contours_minutes = options[:contours_minutes]
       contours_colors = options[:contours_colors]
-      polygons = options[:polygons]
-      denoise = options[:denoise]
-      generalize = options[:generalize]
       
       params = ''
       opts = options.select { |key, value| key != :contours_minutes && key != :contours_colors }
