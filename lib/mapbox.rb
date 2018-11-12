@@ -181,3 +181,4 @@ end
 require 'mapbox/geocoder'
 require 'mapbox/directions'
 require 'mapbox/tilequery'
+require 'mapbox/isochrone'
