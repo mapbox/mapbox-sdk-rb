@@ -2,6 +2,7 @@ language: ruby
 rvm:
  - 2.5.1
 install:
+ - puts Dir.pwd
  - bundle install
 script: 
  - bundle exec ruby -Itest test/all_tests.rb
