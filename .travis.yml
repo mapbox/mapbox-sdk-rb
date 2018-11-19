@@ -1,3 +1,9 @@
 language: ruby
 rvm:
  - 2.5.1
+install:
+ - bundle install
+script: 
+ - bundle exec ruby -Itest test/all_tests.rb
+after_success:
+  - coveralls
