@@ -1,6 +1,9 @@
 # Tilequery
 
 ```rb
+require "mapbox-sdk"
+Mapbox.access_token = "YOUR_ACCESS_TOKEN"
+
 tilequery = Mapbox::Tilequery.tilequery(mapid, {location}, radius, limit)
 
 # Example: tilequery = Mapbox::Tilequery.tilequery("mapbox.mapbox-streets-v7", {"longitude" => -100, "latitude" => 38}, 0, 1)

@@ -1,6 +1,9 @@
 # Directions
 
 ```rb
+require "mapbox-sdk"
+Mapbox.access_token = "YOUR_ACCESS_TOKEN"
+
 # Driving directions with required profile parameter.
 drivingDirections = Mapbox::Directions.directions([{
   "longitude" => -100,
