@@ -6,5 +6,8 @@ if Gem::Version.new(RUBY_VERSION.dup) < Gem::Version.new('1.9.3')
   gem 'rest-client', '~> 2.0.1'
   gem "activesupport", ">= 4.1.11"
   gem 'rake', '10.1.0'
-  gem 'coveralls', require: false
+end
+
+group :development, :test do
+  gem "coveralls", :require => false
 end
