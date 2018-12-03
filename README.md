@@ -19,4 +19,8 @@ gem install mapbox-sdk
 * [Isochrone](https://www.mapbox.com/api-documentation/#isochrone): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/update-docs/docs/isochrone.md)]
   * Profiles for driving, walking, and cycling
 
+## Testing
+
+Run `bundle exec ruby -Itest test/all_tests.rb` or individual tests as needed.
+
 Heavily influenced by Stripe's Ruby client, and includes its MIT license.
