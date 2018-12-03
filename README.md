@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/mapbox/mapbox-sdk-rb/badge.svg?branch=master)](https://coveralls.io/github/mapbox/mapbox-sdk-rb?branch=master)
+
 # mapbox-sdk-ruby
 
 The `mapbox-sdk` gem. A ruby interface to [Mapbox APIs](https://www.mapbox.com/developers/api/).
