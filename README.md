@@ -12,13 +12,13 @@ gem install mapbox-sdk
 
 ## Services
 
-* [Geocoding](https://www.mapbox.com/api-documentation/#geocoding) [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/geocoding.md)]
+* [Geocoding](https://www.mapbox.com/api-documentation/search/#geocoding) [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/geocoding.md)]
   * Forward (place names ⇢  longitude, latitude)
   * Reverse (longitude, latitude ⇢ place names)
-* [Directions](https://www.mapbox.com/api-documentation/#directions): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/directions.md)]
+* [Directions](https://www.mapbox.com/api-documentation/navigation/#directions): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/directions.md)]
   * Profiles for driving, walking, and cycling
-* [Tilequery](https://www.mapbox.com/api-documentation/#tilequery): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/tilequery.md)]
-* [Isochrone](https://www.mapbox.com/api-documentation/#isochrone): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/masterdocs/isochrone.md)]
+* [Tilequery](https://www.mapbox.com/api-documentation/maps/#tilequery): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/tilequery.md)]
+* [Isochrone](https://www.mapbox.com/api-documentation/navigation/#isochrone): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/masterdocs/isochrone.md)]
   * Profiles for driving, walking, and cycling
 
 ## Testing
