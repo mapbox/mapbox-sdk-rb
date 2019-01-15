@@ -20,7 +20,7 @@ gem install mapbox-sdk
 * [Tilequery](https://www.mapbox.com/api-documentation/maps/#tilequery): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/tilequery.md)]
 * [Isochrone](https://www.mapbox.com/api-documentation/navigation/#isochrone): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/isochrone.md)]
   * Profiles for driving, walking, and cycling
-* [Matrix](https://www.mapbox.com/api-documentation/navigation/#matrix): [docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/matrix.md)
+* [Matrix](https://www.mapbox.com/api-documentation/navigation/#matrix): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/matrix.md)]
   * Profiles for driving, driving-traffic, walking, and cycling
 
 ## Testing
