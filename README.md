@@ -16,10 +16,12 @@ gem install mapbox-sdk
   * Forward (place names ⇢  longitude, latitude)
   * Reverse (longitude, latitude ⇢ place names)
 * [Directions](https://www.mapbox.com/api-documentation/navigation/#directions): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/directions.md)]
-  * Profiles for driving, walking, and cycling
+  * Profiles for driving, driving-traffic, walking, and cycling
 * [Tilequery](https://www.mapbox.com/api-documentation/maps/#tilequery): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/tilequery.md)]
 * [Isochrone](https://www.mapbox.com/api-documentation/navigation/#isochrone): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/isochrone.md)]
   * Profiles for driving, walking, and cycling
+* [Matrix](https://www.mapbox.com/api-documentation/navigation/#matrix): [docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/matrix.md)
+  * Profiles for driving, driving-traffic, walking, and cycling
 
 ## Testing
 
