@@ -22,6 +22,8 @@ gem install mapbox-sdk
   * Profiles for driving, walking, and cycling
 * [Matrix](https://www.mapbox.com/api-documentation/navigation/#matrix): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/matrix.md)]
   * Profiles for driving, driving-traffic, walking, and cycling
+* [Map Matching](https://www.mapbox.com/api-documentation/navigation/#map-matching): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/mapmatching.md)]
+  * Profiles for driving, driving-traffic, walking, and cycling
 
 ## Testing
 
