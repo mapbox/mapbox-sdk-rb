@@ -5,7 +5,7 @@ require 'shoulda'
 
 module Mapbox
   class MatrixTest < Test::Unit::TestCase
-    should "#matrix with just coordinates" do
+    should "#matrix with just coordinates and profile" do
       Mapbox.access_token = ENV["MapboxAccessToken"]
       result = Mapbox::Matrix.matrix([{
         "longitude" => -122.42,
