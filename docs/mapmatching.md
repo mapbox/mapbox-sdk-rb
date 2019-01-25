@@ -4,7 +4,7 @@
 require "mapbox-sdk"
 Mapbox.access_token = "YOUR_ACCESS_TOKEN"
 
-# Driving directions with required profile parameter.
+# Snap fuzzy, inaccurate GPS or phone traces to the road and path network with required profile parameter.
 matching = Mapbox::MapMatching.map_matching([{
   "longitude" => -117.17282,
   "latitude" => 32.71204

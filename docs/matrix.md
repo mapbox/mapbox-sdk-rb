@@ -4,7 +4,7 @@
 require "mapbox-sdk"
 Mapbox.access_token = "YOUR_ACCESS_TOKEN"
 
-# Driving directions with required profile parameter.
+# Return travel times between many points, passing in the required profile parameter.
 matrix = Mapbox::Matrix.matrix([{
   "longitude" => -122.42,
   "latitude" => 37.78
