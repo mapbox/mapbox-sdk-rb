@@ -30,7 +30,7 @@ matrix = Mapbox::Matrix.matrix([{
   "latitude" => 37.73
   }], "cycling", {
     annotations: ["duration", "distance"],
-    approaches: ["curb","curb","curb"]
+    approaches: ["curb","","curb"]
   })
 
 # In the above example, you can substitute `driving` for `driving-traffic`, `cycling` or `walking`. For more, [check out the documentation](https://www.mapbox.com/api-documentation/navigation/#matrix).

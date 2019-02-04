@@ -39,5 +39,5 @@ matching = Mapbox::MapMatching.map_matching([{
     approaches: ["curb","curb","curb","curb"]
   })
 
-# In the above example, you can substitute `driving` for `driving-traffic`, `cycling` or `walking`. For more, [check out the documentation](https://www.mapbox.com/api-documentation/navigation/#matrix).
+# In the above example, you can substitute `driving` for `driving-traffic`, `cycling` or `walking`. For more, [check out the documentation](https://docs.mapbox.com/api/navigation/#map-matching).
 ```
