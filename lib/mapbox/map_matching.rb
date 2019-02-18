@@ -6,12 +6,7 @@ module Mapbox
     def self.assemble_params(options={})
       annotations = options[:annotations]
       approaches = options[:approaches]
-      geometries = options[:geometries]
-      language = options[:language]
-      overview = options[:overview]
       radiuses = options[:radiuses]
-      steps = options[:steps]
-      tidy = options[:tidy]
       timestamps = options[:timestamps]
       waypoint_names = options[:waypoint_names]
       waypoints = options[:waypoints]

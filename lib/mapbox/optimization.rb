@@ -6,16 +6,8 @@ module Mapbox
     def self.assemble_params(options={})
       annotations = options[:annotations]
       approaches = options[:approaches]
-      bearings = options[:bearings]
-      destination = options[:destination]
       distributions = options[:distributions]
-      geometries = options[:geometries]
-      language = options[:language]
-      overview = options[:overview]
       radiuses = options[:radiuses]
-      source = options[:source]
-      steps = options[:steps]
-      roundtrip = options[:roundtrip]
       
       params = ''
       opts = options.select { |key, value| key != :annotations && key != :approaches && key != :distributions && key != :radiuses }
