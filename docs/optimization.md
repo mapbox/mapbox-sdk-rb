@@ -18,7 +18,7 @@ optimization = Mapbox::Optimization.optimization([{
 
 # To provide query parameters to the Matrix API, such as `annotations`, `approaches` or `sources`, add those in a Hash as third parameter (find the full list of parameters (here)[https://www.mapbox.com/api-documentation/navigation/#matrix]).
 
-# For instance, to use the `geometries` and `voice_instructions` parameter:
+# For instance, to use the `annotations`, `approaches`, and `overview` parameters:
 optimization = Mapbox::Optimization.optimization([{
   "longitude" => -122.42,
   "latitude" => 37.78
@@ -30,7 +30,8 @@ optimization = Mapbox::Optimization.optimization([{
   "latitude" => 37.73
   }], "cycling", {
     annotations: ["duration", "distance"],
-    approaches: ["curb","curb","curb"]
+    approaches: ["curb","curb","curb"],
+    overview: "false"
   })
 
 # The bearings param works a bit differently. Here's an example, leaving the second bearing blank with an additional `;` character (you must include the same number of bearings as waypoints, per the docs):
