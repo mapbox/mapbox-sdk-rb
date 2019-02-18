@@ -6,7 +6,9 @@ module Mapbox
     def self.assemble_params(options={})
       annotations = options[:annotations]
       approaches = options[:approaches]
-      destinations = options[:destinations]
+      if options[:destinations].kind_of?(Array)
+        destinations = options[:destinations]
+      end
       sources = options[:sources]
       
       params = ''
