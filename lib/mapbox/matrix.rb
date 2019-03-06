@@ -3,24 +3,20 @@ module Mapbox
     include Mapbox::APIOperations::Request
     extend Mapbox::HashUtils
 
-    def self.assemble_params(opts={})
+    def self.assemble_params(options={})
+      opts = options.dup
+
       self.joinArrayParam(opts, :destinations)
-      self.joinArrayParam(opts, :annotations)
+      self.joinArrayParam(opts, :annotations, ',')
       self.joinArrayParam(opts, :approaches)
       self.joinArrayParam(opts, :sources)
 
       return "?#{URI.encode_www_form(opts)}"
     end
 
-    def self.joinArrayParam(opts, name)
+    def self.joinArrayParam(opts, name, joinSymbol = ';')
       if opts[name].kind_of?(Array)
-        # The annotations parameter requires a comma separated list
-        if name == :annotations
-          opts[name] = opts[name].join(',')
-        # Other parameters must be be semi-colon separated
-        else
-          opts[name] = opts[name].join(';')
-        end
+        opts[name] = opts[name].join(joinSymbol)
       end
     end
 
