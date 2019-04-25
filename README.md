@@ -12,14 +12,20 @@ gem install mapbox-sdk
 
 ## Services
 
-* [Geocoding](https://www.mapbox.com/api-documentation/search/#geocoding) [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/geocoding.md)]
+* [Geocoding](https://docs.mapbox.com/api/search/) [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/geocoding.md)]
   * Forward (place names ⇢  longitude, latitude)
   * Reverse (longitude, latitude ⇢ place names)
-* [Directions](https://www.mapbox.com/api-documentation/navigation/#directions): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/directions.md)]
+* [Directions](https://docs.mapbox.com/api/navigation/#directions): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/directions.md)]
+  * Profiles for driving, driving-traffic, walking, and cycling
+* [Tilequery](https://docs.mapbox.com/api/maps/#tilequery): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/tilequery.md)]
+* [Isochrone](https://docs.mapbox.com/api/navigation/#isochrone): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/isochrone.md)]
   * Profiles for driving, walking, and cycling
-* [Tilequery](https://www.mapbox.com/api-documentation/maps/#tilequery): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/tilequery.md)]
-* [Isochrone](https://www.mapbox.com/api-documentation/navigation/#isochrone): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/isochrone.md)]
-  * Profiles for driving, walking, and cycling
+* [Matrix](https://docs.mapbox.com/api/navigation/#matrix): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/matrix.md)]
+  * Profiles for driving, driving-traffic, walking, and cycling
+* [Map Matching](https://docs.mapbox.com/api/navigation/#map-matching): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/mapmatching.md)]
+  * Profiles for driving, driving-traffic, walking, and cycling
+* [Optimization](https://docs.mapbox.com/api/navigation/#optimization): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/optimization.md)]
+* Profiles for driving, driving-traffic, walking, and cycling
 
 ## Testing
 
