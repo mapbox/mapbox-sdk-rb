@@ -25,7 +25,7 @@ gem install mapbox-sdk
 * [Map Matching](https://docs.mapbox.com/api/navigation/#map-matching): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/mapmatching.md)]
   * Profiles for driving, driving-traffic, walking, and cycling
 * [Optimization](https://docs.mapbox.com/api/navigation/#optimization): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/optimization.md)]
-* Profiles for driving, driving-traffic, walking, and cycling
+  * Profiles for driving, driving-traffic, walking, and cycling
 
 ## Testing
 
