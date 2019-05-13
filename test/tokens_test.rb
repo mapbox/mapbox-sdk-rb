@@ -39,5 +39,12 @@ module Mapbox
       assert Mapbox.request_opts[:url].include? '?usage=sk'
     end
 
+    should "#token_create" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      result = Mapbox::Tokens.token_create(ENV["MapboxUsername"], "mapbox-sdk-rb test", [])
+      assert result
+      assert Mapbox.request_opts[:payload].include? '"note":"mapbox-sdk-rb test"'
+    end
+
   end
 end

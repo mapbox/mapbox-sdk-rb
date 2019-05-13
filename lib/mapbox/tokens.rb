@@ -24,5 +24,17 @@ module Mapbox
         "/tokens/v2/#{URI.escape(username)}#{params}",
         nil)
     end
+
+    def self.token_create(username, note, scopes, allowedUrls=[])
+      scopes = scopes || []
+
+      params = {'note' => note, 'scopes' => scopes}
+      params.update('allowedUrls' => allowedUrls) if allowedUrls && allowedUrls.any?
+
+      return request(
+        :post,
+        "/tokens/v2/#{URI.escape(username)}",
+        params)
+    end
   end
 end
