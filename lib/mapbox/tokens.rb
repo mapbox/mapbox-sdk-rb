@@ -42,5 +42,17 @@ module Mapbox
         :delete,
         "/tokens/v2/#{URI.escape(username)}/#{URI.escape(token_id)}")
     end
+
+    def self.token_update(username, token_id, note, scopes, allowedUrls=[])
+      scopes = scopes || []
+
+      params = {'note' => note, 'scopes' => scopes}
+      params.update('allowedUrls' => allowedUrls) if allowedUrls && allowedUrls.any?
+
+      return request(
+        :patch,
+        "/tokens/v2/#{URI.escape(username)}/#{URI.escape(token_id)}",
+        params)
+    end
   end
 end

@@ -77,5 +77,12 @@ module Mapbox
       assert result
     end
 
+    should "#token_update" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      new_token = Mapbox::Tokens.token_create(ENV["MapboxUsername"], "mapbox-sdk-rb test", [])
+      result = Mapbox::Tokens.token_update(ENV["MapboxUsername"], new_token.first["id"],"mapbox-sdk-rb test (updated)",[])
+      assert result
+      Mapbox::Tokens.token_delete(ENV["MapboxUsername"], result.first["id"]) if result
+    end
   end
 end
