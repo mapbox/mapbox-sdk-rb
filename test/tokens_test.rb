@@ -43,7 +43,27 @@ module Mapbox
       Mapbox.access_token = ENV["MapboxAccessToken"]
       result = Mapbox::Tokens.token_create(ENV["MapboxUsername"], "mapbox-sdk-rb test", [])
       assert result
+    end
+
+    should "#token_create (include note param)" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      result = Mapbox::Tokens.token_create(ENV["MapboxUsername"], "mapbox-sdk-rb test", [])
+      assert result
       assert Mapbox.request_opts[:payload].include? '"note":"mapbox-sdk-rb test"'
+    end
+
+    should "#token_create (include scopes param)" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      result = Mapbox::Tokens.token_create(ENV["MapboxUsername"], "mapbox-sdk-rb test", ["tokens:read"])
+      assert result
+      assert Mapbox.request_opts[:payload].include? '"scopes":["tokens:read"'
+    end
+
+    should "#token_create (include allowed URLs param)" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      result = Mapbox::Tokens.token_create(ENV["MapboxUsername"], "mapbox-sdk-rb test", [], ["example.com"])
+      assert result
+      assert Mapbox.request_opts[:payload].include? '"allowedUrls":["example.com"'
     end
 
   end
