@@ -99,7 +99,7 @@ module Mapbox
       # some library out there that makes symbolize_names not work.
       response = JSON.parse(response.body)
     rescue JSON::ParserError
-      raise general_api_error(response.code, response.body)
+      raise general_api_error(response.code, response.body) unless response.body.empty? && (response.code >= 200) && (response.code < 300)
     end
 
     response

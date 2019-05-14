@@ -36,5 +36,11 @@ module Mapbox
         "/tokens/v2/#{URI.escape(username)}",
         params)
     end
+
+    def self.token_delete(username, token_id)
+      return request(
+        :delete,
+        "/tokens/v2/#{URI.escape(username)}/#{URI.escape(token_id)}")
+    end
   end
 end
