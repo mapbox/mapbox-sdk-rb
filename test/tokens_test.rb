@@ -84,5 +84,23 @@ module Mapbox
       assert result
       Mapbox::Tokens.token_delete(ENV["MapboxUsername"], result.first["id"]) if result
     end
+
+    should "#token_update (include scopes param)" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      new_token = Mapbox::Tokens.token_create(ENV["MapboxUsername"], "mapbox-sdk-rb test", ["tokens:read"])
+      result = Mapbox::Tokens.token_update(ENV["MapboxUsername"], new_token.first["id"],"mapbox-sdk-rb test (updated)",["tokens:write"])
+      assert result
+      assert Mapbox.request_opts[:payload].include? '"scopes":["tokens:write"'
+      Mapbox::Tokens.token_delete(ENV["MapboxUsername"], result.first["id"]) if result
+    end
+
+    should "#token_update (include allowed URLs param)" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      new_token = Mapbox::Tokens.token_create(ENV["MapboxUsername"], "mapbox-sdk-rb test", [])
+      result = Mapbox::Tokens.token_update(ENV["MapboxUsername"], new_token.first["id"],"mapbox-sdk-rb test (updated)",[], ["example.com"])
+      assert result
+      assert Mapbox.request_opts[:payload].include? '"allowedUrls":["example.com"'
+      Mapbox::Tokens.token_delete(ENV["MapboxUsername"], result.first["id"]) if result
+    end
   end
 end
