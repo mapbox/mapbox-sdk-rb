@@ -25,6 +25,13 @@ module Mapbox
         nil)
     end
 
+    def self.token_get()
+      return request(
+        :get,
+        "/tokens/v2/",
+        nil)
+    end
+
     def self.token_create(username, note, scopes, allowedUrls=[])
       scopes = scopes || []
 
