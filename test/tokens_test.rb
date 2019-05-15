@@ -108,5 +108,11 @@ module Mapbox
       assert Mapbox.request_opts[:payload].include? '"allowedUrls":["example.com"'
       Mapbox::Tokens.token_delete(ENV["MapboxUsername"], result.first["id"]) if result
     end
+
+    should "#scopes_list" do
+      Mapbox.access_token = ENV["MapboxAccessToken"]
+      result = Mapbox::Tokens.scopes_list(ENV["MapboxUsername"])
+      assert result
+    end
   end
 end

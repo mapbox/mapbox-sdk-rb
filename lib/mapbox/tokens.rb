@@ -61,5 +61,12 @@ module Mapbox
         "/tokens/v2/#{URI.escape(username)}/#{URI.escape(token_id)}",
         params)
     end
+
+    def self.scopes_list(username)
+      return request(
+        :get,
+        "/scopes/v1/#{URI.escape(username)}",
+        nil)
+    end
   end
 end
