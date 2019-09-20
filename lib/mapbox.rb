@@ -11,11 +11,13 @@ module Mapbox
   LONGITUDE_KEY = 'longitude'.freeze
 
   class << self
-    attr_accessor :access_token, :api_base, :request_opts
+    attr_accessor :access_token, :api_base, :request_opts, :open_timeout, :read_timeout
   end
 
   def self.request(method, url, api_key, params={}, headers={}, api_base_url=nil)
     api_base_url = api_base_url || @api_base
+    open_timeout = @open_timeout || 30
+    read_timeout = @read_timeout || 80
     params = params || {}
 
     unless access_token ||= @access_token
@@ -42,10 +44,10 @@ module Mapbox
 
     @request_opts.update(
       :method => method,
-      :open_timeout => 30,
+      :open_timeout => open_timeout,
       :payload => payload,
       :url => url,
-      :timeout => 80)
+      :timeout => read_timeout)
 
     begin
       response = execute_request(@request_opts)
