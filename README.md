@@ -32,6 +32,6 @@ gem install mapbox-sdk
 
 ## Testing
 
-Run `bundle exec ruby -Itest test/all_tests.rb` or individual tests as needed.
+Run `bundle exec ruby -Itest test/all_tests.rb` or individual tests as needed. To run an individual test, do something like `bundle exec ruby -I test test/tokens_test.rb -n "/#token_get/"`.
 
 Heavily influenced by Stripe's Ruby client, and includes its MIT license.
