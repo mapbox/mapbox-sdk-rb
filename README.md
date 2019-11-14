@@ -26,9 +26,12 @@ gem install mapbox-sdk
   * Profiles for driving, driving-traffic, walking, and cycling
 * [Optimization](https://docs.mapbox.com/api/navigation/#optimization): [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/optimization.md)]
   * Profiles for driving, driving-traffic, walking, and cycling
+* [Tokens](https://docs.mapbox.com/api/accounts/#tokens) [[docs](https://github.com/mapbox/mapbox-sdk-rb/blob/master/docs/tokens.md)]
+  * Get, create, update, and delete
+  * Get scopes
 
 ## Testing
 
-Run `bundle exec ruby -Itest test/all_tests.rb` or individual tests as needed.
+Run `bundle exec ruby -Itest test/all_tests.rb` or individual tests as needed. To run an individual test, do something like `bundle exec ruby -I test test/tokens_test.rb -n "/#token_get/"`.
 
 Heavily influenced by Stripe's Ruby client, and includes its MIT license.

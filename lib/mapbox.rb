@@ -17,6 +17,7 @@ module Mapbox
   def self.request(method, url, api_key, params={}, headers={}, api_base_url=nil)
     api_base_url = api_base_url || @api_base
     params = params || {}
+    headers = headers || {}
 
     unless access_token ||= @access_token
       raise AuthenticationError.new('No API key provided. ' \
@@ -28,13 +29,19 @@ module Mapbox
 
     url = api_base_url + url
 
-    params['access_token'] = access_token
-
     case method.to_s.downcase.to_sym
     when :get, :head, :delete
+      params['access_token'] = access_token
+
       # Make params into GET parameters
       url += "#{URI.parse(url).query ? '&' : '?'}#{uri_encode(params)}" if params && params.any?
       payload = nil
+    else
+      url += "#{URI.parse(url).query ? '&' : '?'}#{uri_encode({'access_token' => access_token})}"
+      payload = params.to_json
+      headers.update(
+        :content_type => :json,
+        :accept => :json)
     end
 
     @request_opts = {:verify_ssl => OpenSSL::SSL::VERIFY_PEER,
@@ -45,7 +52,8 @@ module Mapbox
       :open_timeout => 30,
       :payload => payload,
       :url => url,
-      :timeout => 80)
+      :timeout => 80,
+      :headers => headers)
 
     begin
       response = execute_request(@request_opts)
@@ -91,7 +99,7 @@ module Mapbox
       # some library out there that makes symbolize_names not work.
       response = JSON.parse(response.body)
     rescue JSON::ParserError
-      raise general_api_error(response.code, response.body)
+      raise general_api_error(response.code, response.body) unless response.body.empty? && (response.code >= 200) && (response.code < 300)
     end
 
     response
@@ -185,3 +193,4 @@ require 'mapbox/isochrone'
 require 'mapbox/matrix'
 require 'mapbox/map_matching'
 require 'mapbox/optimization'
+require 'mapbox/tokens'
