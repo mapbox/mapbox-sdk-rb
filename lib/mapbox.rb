@@ -78,7 +78,7 @@ module Mapbox
   end
 
   def self.url_encode(key)
-    URI.escape(key.to_s, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    URI.encode_www_form_component(key.to_s)
   end
 
   def self.execute_request(opts)
