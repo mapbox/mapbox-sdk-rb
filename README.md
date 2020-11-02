@@ -29,6 +29,12 @@ gem install mapbox-sdk
 
 ## Testing
 
-Run `bundle exec ruby -Itest test/all_tests.rb` or individual tests as needed.
+You'll need to [create an access token](https://account.mapbox.com/access-tokens/create) in order to run tests.
+
+Then you can run the entire test suite with the following command:
+
+```
+MapboxAccessToken=<YOUR_ACCESS_TOKEN> bundle exec ruby -Itest test/all_tests.rb
+```
 
 Heavily influenced by Stripe's Ruby client, and includes its MIT license.
