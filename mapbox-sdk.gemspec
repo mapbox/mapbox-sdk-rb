@@ -2,7 +2,7 @@ $:.unshift(File.join(File.dirname(__FILE__), 'lib'))
 
 spec = Gem::Specification.new do |s|
   s.name = 'mapbox-sdk'
-  s.version = '2.3.0'
+  s.version = '2.3.1'
   s.summary = 'Ruby bindings for the Mapbox API'
   s.description = ''
   s.authors = ['Tom MacWright']
@@ -10,7 +10,7 @@ spec = Gem::Specification.new do |s|
   s.homepage = 'https://mapbox.com/developers'
   s.license = 'MIT'
 
-  s.add_dependency('rest-client', '~> 2.0.1')
+  s.add_dependency('rest-client', '~> 2.1.0')
 
   s.add_development_dependency('mocha', '~> 0.13.2')
   s.add_development_dependency('shoulda', '~> 3.4.0')
