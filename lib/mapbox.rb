@@ -33,7 +33,7 @@ module Mapbox
     case method.to_s.downcase.to_sym
     when :get, :head, :delete
       # Make params into GET parameters
-      url += "#{URI.parse(url).query ? '&' : '?'}#{uri_encode(params)}" if params && params.any?
+      url += "#{URI.parse(url).query ? '&' : '?'}#{URI.encode_www_form(params)}" if params && params.any?
       payload = nil
     end
 
@@ -78,7 +78,7 @@ module Mapbox
   end
 
   def self.url_encode(key)
-    URI.escape(key.to_s, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
+    URI.encode_www_form_component(key.to_s)
   end
 
   def self.execute_request(opts)
