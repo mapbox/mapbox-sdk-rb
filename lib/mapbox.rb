@@ -72,6 +72,15 @@ module Mapbox
     [parse(response), api_key]
   end
 
+  def self.uri_encode(params)
+    params.
+      map { |k,v| "#{k}=#{url_encode(v)}" }.join('&')
+  end
+
+  def self.url_encode(key)
+    URI.encode_www_form_component(key.to_s)
+  end
+
   def self.execute_request(opts)
     RestClient::Request.execute(opts)
   end
