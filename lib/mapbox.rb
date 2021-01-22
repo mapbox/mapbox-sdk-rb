@@ -104,8 +104,8 @@ module Mapbox
 
   def self.handle_api_error(rcode, rbody)
     begin
-      error_obj = JSON.parse(rbody)
-      error = error_obj[:error] or raise StandardError.new # escape from parsing
+      error = JSON.parse(rbody)
+      raise StandardError.new if !error.has_key?("message") # escape from parsing
 
     rescue JSON::ParserError, StandardError
       raise general_api_error(rcode, rbody)
@@ -113,26 +113,25 @@ module Mapbox
 
     case rcode
     when 400, 404
-      raise invalid_request_error error, rcode, rbody, error_obj
+      raise invalid_request_error error, rcode
     when 401
-      raise authentication_error error, rcode, rbody, error_obj
+      raise authentication_error error, rcode
     else
-      raise api_error error, rcode, rbody, error_obj
+      raise api_error error, rcode
     end
 
   end
 
-  def self.invalid_request_error(error, rcode, rbody, error_obj)
-    StandardError.new(error[:message], error[:param], rcode,
-      rbody, error_obj)
+  def self.invalid_request_error(error, rcode)
+    StandardError.new("Request Error: #{rcode} - #{error["message"]}")
   end
 
-  def self.authentication_error(error, rcode, rbody, error_obj)
-    AuthenticationError.new(error[:message], rcode, rbody, error_obj)
+  def self.authentication_error(error, rcode)
+    AuthenticationError.new("Authentication Error: #{rcode} - #{error["message"]}")
   end
 
-  def self.api_error(error, rcode, rbody, error_obj)
-    StandardError.new(error[:message], rcode, rbody, error_obj)
+  def self.api_error(error, rcode)
+    StandardError.new("API Error: #{rcode} - #{error["message"]}")
   end
 
   def self.handle_restclient_error(e, api_base_url=nil)
