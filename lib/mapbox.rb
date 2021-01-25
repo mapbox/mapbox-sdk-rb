@@ -105,7 +105,7 @@ module Mapbox
   def self.handle_api_error(rcode, rbody)
     begin
       error = JSON.parse(rbody)
-      raise StandardError.new if !error.has_key?("message") # escape from parsing
+      raise StandardError.new unless error.has_key?("message") # escape from parsing
 
     rescue JSON::ParserError, StandardError
       raise general_api_error(rcode, rbody)
