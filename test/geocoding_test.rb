@@ -18,6 +18,10 @@ module Mapbox
     should "#geocode_forward" do
       result = Mapbox::Geocoder.geocode_forward("Chester, NJ")
       assert result
+    end
+
+    should "set_default_timeouts" do
+      result = Mapbox::Geocoder.geocode_forward("Chester, NJ")
       assert Mapbox.request_opts[:timeout] = 80
       assert Mapbox.request_opts[:open_timeout] = 30
     end
@@ -70,11 +74,10 @@ module Mapbox
       end
     end
 
-    should "#geocode_forward (set request and open timeouts)" do
+    should "set_custom_timeouts" do
       Mapbox.request_timeout = 10
       Mapbox.request_open_timeout = 5
       result = Mapbox::Geocoder.geocode_forward("Chester, NJ", {:proximity => {:longitude => 0.1234567, :latitude => -10.987654}})
-      assert result
       assert Mapbox.request_opts[:timeout] == 10
       assert Mapbox.request_opts[:open_timeout] == 5
     end
