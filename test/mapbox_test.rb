@@ -14,6 +14,14 @@ module Mapbox
     should "allow access token to be set" do
       Mapbox.access_token = "foo"
     end
+
+    should "allow request_timeout to be set" do
+      Mapbox.request_timeout = 5
+    end
+
+    should "allow request_open_timeout to be set" do
+      Mapbox.request_open_timeout = 5
+    end
   end
 
   class HashUtilTest < Test::Unit::TestCase
